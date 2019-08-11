@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3.6</title>
+		<style>
+			#information{
+				width: 300px;
+				height: 400px;
+				background-color: lightyellow;
+			}
+		</style>
+		<script>
+			function Showform () {
+				 var xm = myform.name.value;
+                 var xb = myform.xb.value;
+                 var email = myform.email.value;
+                 var jg = myform.jg.value;
+                 var showtime = myform.showtime.value;
+                 var ShowStr = "姓名:" + xm;
+                     ShowStr += "<br>" + "性别:" + xb;
+                     ShowStr += "<br>" + "电子邮件:" + email;
+                     ShowStr += "<br>" + "籍贯:" + jg;
+                     ShowStr += "<br>" + "个人简介:" + showtime;
+                if(xm.length==0){
+                  alert("姓名不能为空");
+                }
+                else if(email.indexOf("@",0)==-1){
+                	alert("电子邮件必须包括@字符");
+                	return false;
+                }
+                else if(email.indexOf(".",0)==-1){
+                	alert("电子邮件必须包括.字符");
+                	return false;
+                }
+                document.getElementById("information").innerHTML = ShowStr;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<form name="myform">
+			<table border="1">
+			<tr>
+				<td>姓名：</td>
+				<td><input type="text" name="name" id="name"></td>
+			</tr>
+			<tr>
+				<td>性别：</td>
+				<td><input type="radio" name="xb" value="男">男<input type="radio" name="xb" value="女">女</td>
+			</tr>
+			<tr>
+				<td>籍贯：</td>
+				<td>
+					<select name="jg" id="jg">
+					<option value="辽宁省">辽宁省</option>
+					<option value="黑龙江省">黑龙江省</option>
+					<option value="吉林省">吉林省</option>
+					<option value="北京市">北京市</option>
+				    </select>
+				</td>
+			</tr>
+			    <td>电子邮件：</td>
+			    <td>
+			    	<input type="email" name="email" id="email" />必须包含@和.字符
+			    </td>
+			<tr>
+				<td>个人简介：</td>
+				<td>
+					<textarea cols="10" rows="4" name="showtime" id="showtime">
+						
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" name="save"  value="保存" onclick="Showform()"/>
+				</td>
+			</tr>
+			</table>
+		</form>
+		<div id="information">
+				
+			</div>
+	</body>
+</html>
